@@ -1,0 +1,11 @@
+cn <- read.csv(file = '~/UNR-IDD.csv')
+head(cn)
+Packets.Looked.Up<-cn$Packets.Looked.Up
+Packets.Matched<-cn$Packets.Matched
+plot(Packets.Looked.Up,Packets.Matched)
+plot(Packets.Looked.Up,Packets.Matched,col='green',pch=1,cex=1,main='packets looked up vs packets matched',xlab='Packets.Looked.Up',ylab='Packets.Matched')
+model<-lm(Packets.Looked.Up~Packets.Matched)
+summary(model)
+attributes(model)
+coef(model)
+abline(model)
